@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { MyCoreModule } from 'src/lib/my-core';
 import { MainModule } from './main';
 import { SecurityModule } from './security';
+import { MyCoreModule } from '@my/core';
 
 @NgModule({
   declarations: [
