@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NotificationService, NotificationType } from '../common-services';
 import { Unsubscribable } from 'rxjs';
+import { ElipsisPipe } from '@my/core';
 
 @Component({
   selector: 'app-demos',
@@ -33,7 +34,9 @@ export class DemosComponent implements OnInit, OnDestroy {
   }
 
   public saluda(): void {
-    this.resultado = `Hola ${this.nombre}`
+    const pipe = new ElipsisPipe();
+
+    this.resultado = `Hola ${pipe.transform(this.nombre, 10)}`
   }
   public despide(): void {
     this.resultado = `Adios ${this.nombre}`
