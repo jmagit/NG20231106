@@ -6,7 +6,8 @@ import { ElipsisPipe } from '@my/core';
 @Component({
   selector: 'app-demos',
   templateUrl: './demos.component.html',
-  styleUrls: ['./demos.component.css']
+  styleUrls: ['./demos.component.css'],
+  // providers: [ NotificationService ]
 })
 export class DemosComponent implements OnInit, OnDestroy {
   private suscriptor: Unsubscribable | undefined;
@@ -51,7 +52,10 @@ export class DemosComponent implements OnInit, OnDestroy {
     this.estetica.error = !this.estetica.error
   }
 
-  calcula(a: number, b: number): number { return a + b }
+  calcula(a: number, b: number): number {
+    console.info('calcula')
+    return a + b
+  }
 
   add(provincia: string) {
     const id = this.listado[this.listado.length - 1].id + 1
@@ -71,6 +75,23 @@ export class DemosComponent implements OnInit, OnDestroy {
     if (this.suscriptor) {
       this.suscriptor.unsubscribe();
     }
+  }
+
+  idiomas = [
+    { codigo: 'en-US', region: 'USA' },
+    { codigo: 'es', region: 'España' },
+    { codigo: 'pt', region: 'Portugal' },
+  ];
+  idioma = this.idiomas[0].codigo;
+  calculos: any[] = [];
+  valCalculadora = 666;
+
+  ponResultado(origen: string, valor: any) {
+    this.calculos.push({
+      pos: this.calculos.length + 1,
+      origen,
+      valor
+    });
   }
 
 }
