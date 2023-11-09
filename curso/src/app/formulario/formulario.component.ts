@@ -35,7 +35,7 @@ export class PersonasDAOService extends RESTDAOService<Persona, number>  {
     super('personas', { context: new HttpContext().set(AUTH_REQUIRED, true) })
   }
   load(pagina: number = 0, filas = 10) {
-    return this.http.get<any>(`${this.baseUrl}?_page=${pagina}&_rows=${filas}`)
+    return this.http.get<any>(`${this.baseUrl}?_page=${pagina}&_rows=${filas}`, this.option)
   }
 }
 
