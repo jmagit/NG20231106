@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent {
-  elemento: any = { id: 1, nombre: 'Pepito', apellidos: 'Grillo', correo: 'pgrillo@example.com', nif: '12345678z', edad: 99 }
+  elemento: any = {  }
   modo: 'add' | 'edit' = 'add'
 
   add() {

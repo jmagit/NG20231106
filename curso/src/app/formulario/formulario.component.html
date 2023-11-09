@@ -35,7 +35,7 @@
   </div>
   <div class="mb-3">
     <label for="correo" class="form-label">correo</label>
-    <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="elemento.correo" #correo="ngModel">
+    <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="elemento.correo" #correo="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
     <output class="error" [hidden]="correo.valid">{{ correo.errors | errormsg}}</output>
   </div>
   <div class="mb-3">
