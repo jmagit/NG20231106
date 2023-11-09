@@ -1,6 +1,8 @@
 <nav>
   <input type="button" value="add" (click)="add()" />
   <input type="button" value="edit" (click)="edit()" />
+  <input type="button" value="list" (click)="list()" />
+  <input *ngIf="auth.isAutenticated" type="button" value="load" (click)="load()" />
 </nav>
 
 <form #miForm="ngForm" >
@@ -17,7 +19,7 @@
   <div class="mb-3">
     <label for="id" class="form-label">código</label>
     <input type="number" class="form-control" id="id" name="id" [(ngModel)]="elemento.id" #id="ngModel"
-      required min="100" [disabled]="modo!=='add'" >
+      required [disabled]="modo!=='add'" >
     <output class="error" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio</output>
   </div>
   <div class="mb-3">
@@ -58,3 +60,9 @@
 </form>
 
 {{ elemento | json }}
+
+<ul>
+  <li *ngFor="let item of listado">
+    {{item.id}} {{item.nombre}} {{item.apellidos}}
+  </li>
+</ul>

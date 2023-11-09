@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
-  securityApiURL: 'http://localhost:4321/ng ',
+  apiURL: '/api/',
+  securityApiURL: '/auth/',
   ERROR_LEVEL: 99,
 };
