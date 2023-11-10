@@ -15,8 +15,8 @@ import { ERROR_LEVEL, LoggerService, MyCoreModule } from '@my/core';
 import { environment } from 'src/environments/environment';
 import { CommonServicesModule } from './common-services';
 import { DemosComponent } from './demos/demos.component';
-import GraficoSvgComponent from 'src/lib/independientes/grafico-svg/grafico-svg.component';
-import { DaskboardComponent } from './daskboard/daskboard.component';
+//import GraficoSvgComponent from 'src/lib/independientes/grafico-svg/grafico-svg.component';
+// import { DaskboardComponent } from './daskboard/daskboard.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { CommonComponentModule } from './common-component';
 import { FormularioComponent } from './formulario/formulario.component';
@@ -28,14 +28,15 @@ import { ContactosModule } from './contactos';
   declarations: [
     AppComponent,
     DemosComponent,
-    DaskboardComponent,
+    // DaskboardComponent,
     CalculadoraComponent,
     FormularioComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule,
-    GraficoSvgComponent, CommonComponentModule, ContactosModule,
+    // GraficoSvgComponent,
+    CommonComponentModule, ContactosModule,
   ],
   providers: [
     LoggerService,
