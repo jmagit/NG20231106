@@ -1,15 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NotificationService, NotificationType } from '../common-services';
 import { Unsubscribable } from 'rxjs';
-import { ElipsisPipe } from '@my/core';
-import { ElipsisPipe as ElipsisPipe_1, CapitalizePipe } from '../../lib/my-core/pipes/cadenas.pipe';
-import { SizerComponent } from '../../lib/my-core/components/sizer.component';
-import { FormButtonsComponent } from '../common-component/form-buttons/form-buttons.component';
-import { CardComponent } from '../common-component/card.component';
-import { TypeValidator } from '../../lib/my-core/directives/mis-validadores.directive';
 import { NgFor, NgIf, NgClass, UpperCasePipe, JsonPipe, SlicePipe, DecimalPipe, TitleCasePipe, CurrencyPipe, DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TypeValidator, SizerComponent, CapitalizePipe, ElipsisPipe } from '@my/core';
 import { CalculadoraComponent } from '../calculadora/calculadora.component';
+import { CardComponent, FormButtonsComponent } from '../common-component';
 
 @Component({
     selector: 'app-demos',
@@ -33,8 +29,8 @@ import { CalculadoraComponent } from '../calculadora/calculadora.component';
         TitleCasePipe,
         CurrencyPipe,
         DatePipe,
-        ElipsisPipe_1,
         CapitalizePipe,
+        ElipsisPipe,
     ],
 })
 export class DemosComponent implements OnInit, OnDestroy {

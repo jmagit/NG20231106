@@ -1,4 +1,5 @@
 <!-- <app-notification-modal /> -->
+<a routerLink="." fragment="provincias">provincias</a>
 <div class="container theme-dark">
   <div class="row">
     <div class="col">
@@ -66,7 +67,7 @@
   <!-- Calcula: 2 + 2 = {{ 2 + 2 }} = {{ calcula | exec:2:2 | currency:'EUR':'symbol':'1.2-2' }} -->
 </p>
 <p>Fecha: {{fecha | date:'dd/MMMM/yyyy'}}</p>
-<ul>
+<ul id="provincias">
   <li *ngFor="let item of listado | slice:-5; let ind=index; let fondo=odd"
     [style.background-color]="fondo ? 'LightBlue' : 'Lavender'">
     {{item.nombre | titlecase}} ({{item.id}}) [Elemento {{ind + 1}} de {{listado.length}}]

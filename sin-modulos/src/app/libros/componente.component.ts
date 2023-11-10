@@ -2,13 +2,12 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges, forwardRef } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap, RouterLink } from '@angular/router';
-import { LibrosViewModelService } from './servicios.service';
-import { ErrorMessagePipe } from '../../lib/my-core/pipes/cadenas.pipe';
-import { FormButtonsComponent } from '../common-component/form-buttons/form-buttons.component';
-import { TypeValidator } from '../../lib/my-core/directives/mis-validadores.directive';
 import { FormsModule } from '@angular/forms';
-import { PaginatorModule } from 'primeng/paginator';
 import { NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, NgFor } from '@angular/common';
+import { PaginatorModule } from 'primeng/paginator';
+import { TypeValidator, ErrorMessagePipe } from '@my/core';
+import { FormButtonsComponent } from '../common-component';
+import { LibrosViewModelService } from './servicios.service';
 
 @Component({
     selector: 'app-libros',

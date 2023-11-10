@@ -4,11 +4,10 @@ import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { NotificationService } from '../common-services';
 import { AUTH_REQUIRED, AuthService } from '../security';
-import { ErrorMessagePipe, CapitalizePipe } from '../../lib/my-core/pipes/cadenas.pipe';
-import { FormButtonsComponent } from '../common-component/form-buttons/form-buttons.component';
-import { TypeValidator, UppercaseValidator, NIFNIEValidator } from '../../lib/my-core/directives/mis-validadores.directive';
 import { FormsModule } from '@angular/forms';
 import { NgIf, NgFor, JsonPipe } from '@angular/common';
+import { TypeValidator, UppercaseValidator, NIFNIEValidator, ErrorMessagePipe, CapitalizePipe } from '@my/core';
+import { FormButtonsComponent } from '../common-component';
 
 export abstract class RESTDAOService<T, K> {
   protected baseUrl = environment.apiURL;

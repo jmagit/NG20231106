@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { environment } from 'src/environments/environment';
-import { LoggerService, MyCoreModule } from '@my/core';
+import { LoggerService } from '@my/core';
 import { DAOServiceMock } from '../base-code';
 import { NavigationService, NotificationService } from '../common-services';
 
@@ -279,7 +279,7 @@ describe('Modulo Libros', () => {
         beforeEach(async () => {
           await TestBed.configureTestingModule({
     providers: [NotificationService, LoggerService],
-    imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, MyCoreModule, componente],
+    imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, componente],
     schemas: [NO_ERRORS_SCHEMA]
 })
             .compileComponents();

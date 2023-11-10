@@ -81,9 +81,9 @@ export class AjaxWaitInterceptor implements HttpInterceptor {
 export class AjaxWaitComponent implements DoCheck {
   private oculto = true;
   constructor(private srv: AjaxWaitService) { }
-  public get Visible() { return !this.oculto; }
-  public get Oculto() { return this.oculto; }
-  // public get Oculto() { return this.srv.Oculto; }
+  public get Visible() { return !this.Oculto; }
+  // public get Oculto() { return this.oculto; }
+  public get Oculto() { return this.srv.Oculto; }
   ngDoCheck(): void {
     this.oculto = this.srv.Oculto;
   }

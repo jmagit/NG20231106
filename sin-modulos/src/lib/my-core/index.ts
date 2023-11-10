@@ -1,4 +1,5 @@
-
 export * from './services/logger.service'
 export * from './pipes/cadenas.pipe'
-export { nifnieValidator, uppercaseValidator } from './directives/mis-validadores.directive'
+export * from './pipes/numericos.pipe'
+export * from './directives/mis-validadores.directive'
+export * from './components/sizer.component'

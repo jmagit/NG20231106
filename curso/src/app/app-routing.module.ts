@@ -40,14 +40,14 @@ const routes: Routes = [
   { path: '**', redirectTo: '/404.html' }
 ];
 
-class NotRouteReuseStrategy extends BaseRouteReuseStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  override shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean { return false; }
-}
+// class NotRouteReuseStrategy extends BaseRouteReuseStrategy {
+//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//   override shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean { return false; }
+// }
 
 @NgModule({
-  providers: [ {provide: RouteReuseStrategy, useClass: NotRouteReuseStrategy} ],
-  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true , onSameUrlNavigation: 'reload', })],
+  // providers: [ {provide: RouteReuseStrategy, useClass: NotRouteReuseStrategy} ],
+  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true /* , anchorScrolling: 'enabled', onSameUrlNavigation: 'reload',*/ })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

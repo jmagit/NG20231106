@@ -1,20 +1,28 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges, forwardRef } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap, RouterLink } from '@angular/router';
-import { ContactosViewModelService } from './servicios.service';
-import { ErrorMessagePipe } from '../../lib/my-core/pipes/cadenas.pipe';
-import { TypeValidator } from '../../lib/my-core/directives/mis-validadores.directive';
 import { FormsModule } from '@angular/forms';
+import { NgIf, NgFor, DatePipe, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { PaginatorModule } from 'primeng/paginator';
-import { NgIf, NgFor, DatePipe } from '@angular/common';
+import { ErrorMessagePipe, TypeValidator } from '@my/core';
+import { ContactosViewModelService } from './servicios.service';
 
-/*
 @Component({
   selector: 'app-contactos',
   templateUrl: './tmpl-anfitrion.component.html',
   styleUrls: ['./componente.component.css'],
   // providers: [ContactosViewModelService]
+  standalone: true,
+  imports: [
+      NgSwitch,
+      NgSwitchCase,
+      forwardRef(() => ContactosAddComponent),
+      forwardRef(() => ContactosEditComponent),
+      forwardRef(() => ContactosViewComponent),
+      NgSwitchDefault,
+      forwardRef(() => ContactosListComponent),
+  ],
 })
 export class ContactosComponent implements OnInit, OnDestroy {
   constructor(protected vm: ContactosViewModelService) { }
@@ -26,6 +34,7 @@ export class ContactosComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void { this.vm.clear(); }
 }
 
+/*
 @Component({
   selector: 'app-contactos-list',
   templateUrl: './tmpl-list.sin-rutas.component.html',

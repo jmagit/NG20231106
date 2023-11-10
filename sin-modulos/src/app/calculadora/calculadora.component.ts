@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { LoggerService } from '@my/core';
+import { LoggerService, ToComaDecimalPipe } from '@my/core';
 import { NotificationService, NotificationType } from '../common-services';
 import { environment } from 'src/environments/environment';
 import { OnChanges } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { ToComaDecimalPipe } from '../../lib/my-core/pipes/numericos.pipe';
 import { NgIf, SlicePipe } from '@angular/common';
 
 @Component({

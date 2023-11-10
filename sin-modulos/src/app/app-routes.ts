@@ -1,5 +1,4 @@
-import { NgModule } from '@angular/core';
-import { ActivatedRouteSnapshot, BaseRouteReuseStrategy, RouteReuseStrategy, RouterModule, Routes, UrlSegment } from '@angular/router';
+import { Routes, UrlSegment } from '@angular/router';
 import { HomeComponent, PageNotFoundComponent } from './main';
 import { DemosComponent } from './demos/demos.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
@@ -12,7 +11,7 @@ export function svgFiles(url: UrlSegment[]) {
   return url.length === 1 && url[0].path.endsWith('.svg') ? ({ consumed: url }) : null;
 }
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'inicio', component: HomeComponent },
   { path: 'demos', component: DemosComponent, canActivate: [ AuthWithRedirectCanActivate('/login') ] },
@@ -39,15 +38,3 @@ const routes: Routes = [
   { path: '404.html', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/404.html' }
 ];
-
-class NotRouteReuseStrategy extends BaseRouteReuseStrategy {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  override shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean { return false; }
-}
-
-@NgModule({
-  providers: [ {provide: RouteReuseStrategy, useClass: NotRouteReuseStrategy} ],
-  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true, onSameUrlNavigation: 'reload', })],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }

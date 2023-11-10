@@ -34,7 +34,7 @@ describe('nifnieValidator', () => {
 @Component({
     template: `<input type="text" [(ngModel)]="valor" #myInput="ngModel" nifnie >`,
     standalone: true,
-    imports: [FormsModule]
+    imports: [FormsModule, NIFNIEValidator]
 })
 class nifnieValidatorHostComponent {
   @ViewChild('myInput') control?: FormControl<string>
