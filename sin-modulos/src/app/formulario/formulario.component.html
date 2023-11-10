@@ -63,6 +63,6 @@
 
 <ul>
   <li *ngFor="let item of listado">
-    {{item.id}} {{item.nombre}} {{item.apellidos}}
+    {{item.id}} {{item.nombre}} {{item.apellidos | capitalize }}
   </li>
 </ul>

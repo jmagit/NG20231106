@@ -230,10 +230,10 @@ describe('CalculadoraComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CalculadoraComponent ],
-      providers: [ NotificationService, LoggerService, { provide: ERROR_LEVEL, useValue: 0 } ],
-      schemas: [ NO_ERRORS_SCHEMA ]
-    })
+    imports: [CalculadoraComponent],
+    providers: [NotificationService, LoggerService, { provide: ERROR_LEVEL, useValue: 0 }],
+    schemas: [NO_ERRORS_SCHEMA]
+})
     .compileComponents();
   });
 

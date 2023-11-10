@@ -4,6 +4,11 @@ import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { NotificationService } from '../common-services';
 import { AUTH_REQUIRED, AuthService } from '../security';
+import { ErrorMessagePipe, CapitalizePipe } from '../../lib/my-core/pipes/cadenas.pipe';
+import { FormButtonsComponent } from '../common-component/form-buttons/form-buttons.component';
+import { TypeValidator, UppercaseValidator, NIFNIEValidator } from '../../lib/my-core/directives/mis-validadores.directive';
+import { FormsModule } from '@angular/forms';
+import { NgIf, NgFor, JsonPipe } from '@angular/common';
 
 export abstract class RESTDAOService<T, K> {
   protected baseUrl = environment.apiURL;
@@ -49,9 +54,11 @@ interface Persona {
 }
 
 @Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.css']
+    selector: 'app-formulario',
+    templateUrl: './formulario.component.html',
+    styleUrls: ['./formulario.component.css'],
+    standalone: true,
+    imports: [NgIf, FormsModule, TypeValidator, UppercaseValidator, NIFNIEValidator, FormButtonsComponent, NgFor, JsonPipe, ErrorMessagePipe, CapitalizePipe]
 })
 export class FormularioComponent {
   elemento: any = {}

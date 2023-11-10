@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-form-buttons',
-  templateUrl: './form-buttons.component.html',
-  styleUrls: ['./form-buttons.component.css']
+    selector: 'app-form-buttons',
+    templateUrl: './form-buttons.component.html',
+    styleUrls: ['./form-buttons.component.css'],
+    standalone: true,
+    imports: [NgIf]
 })
 export class FormButtonsComponent {
   @Input('send-disabled') sendDisabled: boolean | null = false;

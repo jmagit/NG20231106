@@ -8,8 +8,8 @@ xdescribe('DaskboardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DaskboardComponent]
-    });
+    declarations: [DaskboardComponent]
+});
     fixture = TestBed.createComponent(DaskboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

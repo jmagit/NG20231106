@@ -278,11 +278,10 @@ describe('Modulo Libros', () => {
 
         beforeEach(async () => {
           await TestBed.configureTestingModule({
-            declarations: [componente],
-            providers: [NotificationService, LoggerService],
-            imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, MyCoreModule],
-            schemas: [NO_ERRORS_SCHEMA]
-          })
+    providers: [NotificationService, LoggerService],
+    imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, MyCoreModule, componente],
+    schemas: [NO_ERRORS_SCHEMA]
+})
             .compileComponents();
         });
 

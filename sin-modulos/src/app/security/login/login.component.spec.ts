@@ -18,11 +18,10 @@ describe('LoginComponent', () => {
 
   beforeEach(async() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
-      providers: [ LoginService, AuthService, NotificationService, LoggerService, ],
-      imports: [ HttpClientTestingModule, RouterTestingModule, FormsModule ],
-      schemas: [ NO_ERRORS_SCHEMA ]
-    })
+    providers: [LoginService, AuthService, NotificationService, LoggerService,],
+    imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, LoginComponent],
+    schemas: [NO_ERRORS_SCHEMA]
+})
     .compileComponents();
   });
 
@@ -98,11 +97,10 @@ describe('LoginFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent ],
-      providers: [ LoginService, AuthService, NotificationService, LoggerService, WindowService ],
-      imports: [ HttpClientTestingModule, RouterTestingModule, FormsModule ],
-      schemas: [ NO_ERRORS_SCHEMA ]
-    })
+    providers: [LoginService, AuthService, NotificationService, LoggerService, WindowService],
+    imports: [HttpClientTestingModule, RouterTestingModule, FormsModule, LoginFormComponent],
+    schemas: [NO_ERRORS_SCHEMA]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(LoginFormComponent);

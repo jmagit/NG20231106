@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LOGIN_FORM_CLOSE_EVENT, LOGIN_FORM_OPEN_EVENT, LoginService } from '../security.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventBusService, NotificationService } from 'src/app/common-services';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 export class BaseComponent {
   txtUsuario = 'adm@example.com';
@@ -45,9 +47,11 @@ export class BaseComponent {
 }
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: true,
+    imports: [NgIf, FormsModule]
 })
 export class LoginComponent extends BaseComponent {
   private login$: any;
@@ -66,9 +70,11 @@ export class LoginComponent extends BaseComponent {
 }
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login-form',
+    templateUrl: './login-form.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: true,
+    imports: [NgIf, FormsModule]
 })
 export class LoginFormComponent extends BaseComponent implements OnInit, OnDestroy {
   errorMessage = '';

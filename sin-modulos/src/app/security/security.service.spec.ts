@@ -355,9 +355,15 @@ describe('AuthInterceptor', () => {
   });
 });
 
-@Component({ selector: 'app-test-home', template: `<p>Test Home</p>` })
+@Component({
+    selector: 'app-test-home', template: `<p>Test Home</p>`,
+    standalone: true
+})
 class TestHomeComponent { }
-@Component({ selector: 'app-test-component', template: `<p>Test Component</p>` })
+@Component({
+    selector: 'app-test-component', template: `<p>Test Component</p>`,
+    standalone: true
+})
 class TestComponent { }
 
 describe('AuthCanActivateFn', () => {
@@ -367,19 +373,17 @@ describe('AuthCanActivateFn', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestHomeComponent, TestComponent],
-      providers: [AuthService, Location, ],
-      imports: [
-        RouterTestingModule.withRoutes(
-          [
+    providers: [AuthService, Location,],
+    imports: [
+        RouterTestingModule.withRoutes([
             { path: '', pathMatch: 'full', component: TestHomeComponent },
             { path: 'login', component: TestComponent },
             { path: 'test', component: TestComponent, canActivate: [AuthCanActivateFn] },
             { path: 'redirect', component: TestComponent, canActivate: [AuthWithRedirectCanActivate('/login')] },
-          ]
-        )
-      ]
-    });
+        ]),
+        TestHomeComponent, TestComponent
+    ]
+});
     router = TestBed.inject(Router);
     auth = TestBed.inject(AuthService);
     location = TestBed.inject(Location)
@@ -424,18 +428,16 @@ describe('InRoleCanActivate', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestHomeComponent, TestComponent],
-      providers: [AuthService],
-      imports: [
-        RouterTestingModule.withRoutes(
-          [
+    providers: [AuthService],
+    imports: [
+        RouterTestingModule.withRoutes([
             { path: '', pathMatch: 'full', component: TestHomeComponent },
             { path: 'test', component: TestComponent, canActivate: [InRoleCanActivate('Administradores', 'ADMIN')] },
             { path: 'bad', component: TestComponent, canActivate: [InRoleCanActivate()] },
-          ]
-        )
-      ]
-    });
+        ]),
+        TestHomeComponent, TestComponent
+    ]
+});
     router = TestBed.inject(Router);
     auth = TestBed.inject(AuthService);
   });

@@ -1,14 +1,29 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
-import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges, forwardRef } from '@angular/core';
+import { ActivatedRoute, Router, ParamMap, RouterLink } from '@angular/router';
 import { LibrosViewModelService } from './servicios.service';
+import { ErrorMessagePipe } from '../../lib/my-core/pipes/cadenas.pipe';
+import { FormButtonsComponent } from '../common-component/form-buttons/form-buttons.component';
+import { TypeValidator } from '../../lib/my-core/directives/mis-validadores.directive';
+import { FormsModule } from '@angular/forms';
+import { PaginatorModule } from 'primeng/paginator';
+import { NgSwitch, NgSwitchCase, NgSwitchDefault, NgIf, NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-libros',
-  templateUrl: './tmpl-anfitrion.component.html',
-  styleUrls: ['./componente.component.css'],
-  // providers: [LibrosViewModelService]
+    selector: 'app-libros',
+    templateUrl: './tmpl-anfitrion.component.html',
+    styleUrls: ['./componente.component.css'],
+    standalone: true,
+    imports: [
+        NgSwitch,
+        NgSwitchCase,
+        forwardRef(() => LibrosAddComponent),
+        forwardRef(() => LibrosEditComponent),
+        forwardRef(() => LibrosViewComponent),
+        NgSwitchDefault,
+        forwardRef(() => LibrosListComponent),
+    ],
 })
 export class LibrosComponent implements OnInit, OnDestroy {
   constructor(protected vm: LibrosViewModelService, private route: ActivatedRoute) { }
@@ -31,9 +46,11 @@ export class LibrosComponent implements OnInit, OnDestroy {
 }
 
 @Component({
-  selector: 'app-libros-list',
-  templateUrl: './tmpl-list.sin-rutas.component.html',
-  styleUrls: ['./componente.component.css']
+    selector: 'app-libros-list',
+    templateUrl: './tmpl-list.sin-rutas.component.html',
+    styleUrls: ['./componente.component.css'],
+    standalone: true,
+    imports: [NgIf, RouterLink, NgFor, PaginatorModule]
 })
 export class LibrosListComponent implements OnInit, OnDestroy {
   constructor(protected vm: LibrosViewModelService) { }
@@ -42,9 +59,11 @@ export class LibrosListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void { }
 }
 @Component({
-  selector: 'app-libros-add',
-  templateUrl: './tmpl-form.component.html',
-  styleUrls: ['./componente.component.css']
+    selector: 'app-libros-add',
+    templateUrl: './tmpl-form.component.html',
+    styleUrls: ['./componente.component.css'],
+    standalone: true,
+    imports: [FormsModule, TypeValidator, FormButtonsComponent, ErrorMessagePipe]
 })
 export class LibrosAddComponent implements OnInit {
   constructor(protected vm: LibrosViewModelService) { }
@@ -52,9 +71,11 @@ export class LibrosAddComponent implements OnInit {
   ngOnInit(): void { }
 }
 @Component({
-  selector: 'app-libros-edit',
-  templateUrl: './tmpl-form.component.html',
-  styleUrls: ['./componente.component.css']
+    selector: 'app-libros-edit',
+    templateUrl: './tmpl-form.component.html',
+    styleUrls: ['./componente.component.css'],
+    standalone: true,
+    imports: [FormsModule, TypeValidator, FormButtonsComponent, ErrorMessagePipe]
 })
 export class LibrosEditComponent implements OnInit, OnDestroy {
   constructor(protected vm: LibrosViewModelService) { }
@@ -63,9 +84,11 @@ export class LibrosEditComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void { }
 }
 @Component({
-  selector: 'app-libros-view',
-  templateUrl: './tmpl-view.component.html',
-  styleUrls: ['./componente.component.css']
+    selector: 'app-libros-view',
+    templateUrl: './tmpl-view.component.html',
+    styleUrls: ['./componente.component.css'],
+    standalone: true,
+    imports: [RouterLink, FormButtonsComponent]
 })
 export class LibrosViewComponent implements OnInit, OnDestroy {
   constructor(protected vm: LibrosViewModelService) { }

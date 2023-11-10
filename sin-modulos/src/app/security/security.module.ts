@@ -12,10 +12,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule, FormsModule, ReactiveFormsModule, RouterModule.forChild(routes),
-  ],
-  declarations: [ LoginComponent, RegisterUserComponent, LoginFormComponent ],
-  exports: [ LoginComponent, RegisterUserComponent, RouterModule, ],
+    imports: [
+        CommonModule, FormsModule, ReactiveFormsModule, RouterModule.forChild(routes),
+        LoginComponent, RegisterUserComponent, LoginFormComponent,
+    ],
+    exports: [LoginComponent, RegisterUserComponent, RouterModule,],
 })
 export class SecurityModule { }

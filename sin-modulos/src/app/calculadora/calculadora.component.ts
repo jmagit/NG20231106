@@ -4,12 +4,16 @@ import { NotificationService, NotificationType } from '../common-services';
 import { environment } from 'src/environments/environment';
 import { OnChanges } from '@angular/core';
 import { fromEvent } from 'rxjs';
+import { ToComaDecimalPipe } from '../../lib/my-core/pipes/numericos.pipe';
+import { NgIf, SlicePipe } from '@angular/common';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'calculadora',
-  templateUrl: './calculadora.component.html',
-  styleUrls: ['./calculadora.component.css']
+    // eslint-disable-next-line @angular-eslint/component-selector
+    selector: 'calculadora',
+    templateUrl: './calculadora.component.html',
+    styleUrls: ['./calculadora.component.css'],
+    standalone: true,
+    imports: [NgIf, SlicePipe, ToComaDecimalPipe]
 })
 export class CalculadoraComponent implements OnInit, OnChanges {
   public readonly Math = Math;

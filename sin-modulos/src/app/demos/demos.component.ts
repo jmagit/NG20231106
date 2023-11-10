@@ -2,12 +2,40 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NotificationService, NotificationType } from '../common-services';
 import { Unsubscribable } from 'rxjs';
 import { ElipsisPipe } from '@my/core';
+import { ElipsisPipe as ElipsisPipe_1, CapitalizePipe } from '../../lib/my-core/pipes/cadenas.pipe';
+import { SizerComponent } from '../../lib/my-core/components/sizer.component';
+import { FormButtonsComponent } from '../common-component/form-buttons/form-buttons.component';
+import { CardComponent } from '../common-component/card.component';
+import { TypeValidator } from '../../lib/my-core/directives/mis-validadores.directive';
+import { NgFor, NgIf, NgClass, UpperCasePipe, JsonPipe, SlicePipe, DecimalPipe, TitleCasePipe, CurrencyPipe, DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CalculadoraComponent } from '../calculadora/calculadora.component';
 
 @Component({
-  selector: 'app-demos',
-  templateUrl: './demos.component.html',
-  styleUrls: ['./demos.component.css'],
-  // providers: [ NotificationService ]
+    selector: 'app-demos',
+    templateUrl: './demos.component.html',
+    styleUrls: ['./demos.component.css'],
+    standalone: true,
+    imports: [
+        CalculadoraComponent,
+        FormsModule,
+        NgFor,
+        TypeValidator,
+        CardComponent,
+        FormButtonsComponent,
+        NgIf,
+        NgClass,
+        SizerComponent,
+        UpperCasePipe,
+        JsonPipe,
+        SlicePipe,
+        DecimalPipe,
+        TitleCasePipe,
+        CurrencyPipe,
+        DatePipe,
+        ElipsisPipe_1,
+        CapitalizePipe,
+    ],
 })
 export class DemosComponent implements OnInit, OnDestroy {
   private suscriptor: Unsubscribable | undefined;

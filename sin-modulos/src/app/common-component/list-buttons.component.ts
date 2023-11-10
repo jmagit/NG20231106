@@ -1,15 +1,18 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-list-buttons',
-  template: `
+    selector: 'app-list-buttons',
+    template: `
     <div class="btn-group" role="group">
       <button class="btn btn-info" *ngIf="hasView" (click)="view.emit(null)" title="Ver"><i class="fas fa-eye"></i></button>
       <button class="btn btn-success" *ngIf="hasEdit" (click)="edit.emit(null)" title="Editar"><i class="fas fa-pen"></i></button>
       <button class="btn btn-danger" *ngIf="hasDelete" (click)="confirmDelete()" title="Borrar"><i class="far fa-trash-alt"></i></button>
     </div>
-  `
+  `,
+    standalone: true,
+    imports: [NgIf]
 })
 export class ListButtonsComponent {
   @Input('can-view') canView = true

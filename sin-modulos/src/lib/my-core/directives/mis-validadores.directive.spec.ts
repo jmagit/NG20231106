@@ -32,7 +32,9 @@ describe('nifnieValidator', () => {
 });
 
 @Component({
-  template: `<input type="text" [(ngModel)]="valor" #myInput="ngModel" nifnie >`
+    template: `<input type="text" [(ngModel)]="valor" #myInput="ngModel" nifnie >`,
+    standalone: true,
+    imports: [FormsModule]
 })
 class nifnieValidatorHostComponent {
   @ViewChild('myInput') control?: FormControl<string>
@@ -46,9 +48,8 @@ describe('NIFNIEValidator', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [nifnieValidatorHostComponent, NIFNIEValidator],
-      imports: [FormsModule]
-    })
+    imports: [FormsModule, nifnieValidatorHostComponent, NIFNIEValidator]
+})
       .compileComponents();
   });
 

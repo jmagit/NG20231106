@@ -15,8 +15,9 @@ export function nifnieValidator(): ValidatorFn {
   };
 }
 @Directive({
-  selector: '[nifnie][formControlName],[nifnie][formControl],[nifnie][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: NIFNIEValidator, multi: true }]
+    selector: '[nifnie][formControlName],[nifnie][formControl],[nifnie][ngModel]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: NIFNIEValidator, multi: true }],
+    standalone: true
 })
 export class NIFNIEValidator implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
@@ -31,8 +32,9 @@ export function uppercaseValidator(): ValidatorFn {
   };
 }
 @Directive({
-  selector: '[uppercase][formControlName],[uppercase][formControl],[uppercase][ngModel]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: UppercaseValidator, multi: true }]
+    selector: '[uppercase][formControlName],[uppercase][formControl],[uppercase][ngModel]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: UppercaseValidator, multi: true }],
+    standalone: true
 })
 export class UppercaseValidator implements Validator {
   validate(control: AbstractControl): ValidationErrors | null {
@@ -41,10 +43,11 @@ export class UppercaseValidator implements Validator {
 }
 
 @Directive({
-  selector: '[type][formControlName],[type][formControl],[type][ngModel]',
-  providers: [
-      { provide: NG_VALIDATORS, useExisting: forwardRef(() => TypeValidator), multi: true }
-  ]
+    selector: '[type][formControlName],[type][formControl],[type][ngModel]',
+    providers: [
+        { provide: NG_VALIDATORS, useExisting: forwardRef(() => TypeValidator), multi: true }
+    ],
+    standalone: true
 })
 export class TypeValidator implements Validator {
   constructor(private elem: ElementRef) { }
