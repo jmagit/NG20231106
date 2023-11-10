@@ -4,7 +4,7 @@ import { HomeComponent, PageNotFoundComponent } from './main';
 import { DemosComponent } from './demos/demos.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContactosAddComponent, ContactosEditComponent, ContactosListComponent, ContactosViewComponent } from './contactos';
-import { AuthCanActivateFn, AuthWithRedirectCanActivate, InRoleCanActivateChild, LoginComponent, RegisterUserComponent } from './security';
+import { AuthCanActivateFn, AuthWithRedirectCanActivate, InRoleCanActivateChild, LoginFormComponent, RegisterUserComponent } from './security';
 // import { LibrosComponent } from './libros';
 // import GraficoSvgComponent from 'src/lib/independientes/grafico-svg/grafico-svg.component';
 
@@ -34,7 +34,7 @@ const routes: Routes = [
   { matcher: svgFiles, loadComponent: () => import('../lib/independientes/grafico-svg/grafico-svg.component') },
   { path: 'libros', loadChildren: () => import('./libros/modulo.module').then(mod => mod.LibrosModule), canActivateChild: [ InRoleCanActivateChild('Empleados') ] },
   { path: 'config', loadChildren: () => import('./config/config.module') },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginFormComponent },
   { path: 'registro', component: RegisterUserComponent },
   { path: '404.html', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/404.html' }
