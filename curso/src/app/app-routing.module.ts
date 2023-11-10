@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, UrlSegment } from '@angular/router';
+import { ActivatedRouteSnapshot, BaseRouteReuseStrategy, RouteReuseStrategy, RouterModule, Routes, UrlSegment } from '@angular/router';
 import { HomeComponent, PageNotFoundComponent } from './main';
 import { DemosComponent } from './demos/demos.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
@@ -40,8 +40,14 @@ const routes: Routes = [
   { path: '**', redirectTo: '/404.html' }
 ];
 
+class NotRouteReuseStrategy extends BaseRouteReuseStrategy {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  override shouldReuseRoute(future: ActivatedRouteSnapshot, curr: ActivatedRouteSnapshot): boolean { return false; }
+}
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true, })],
+  providers: [ {provide: RouteReuseStrategy, useClass: NotRouteReuseStrategy} ],
+  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true , onSameUrlNavigation: 'reload', })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
