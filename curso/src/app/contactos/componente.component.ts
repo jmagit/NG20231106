@@ -4,7 +4,6 @@ import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges } from '@
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { ContactosViewModelService } from './servicios.service';
 
-/*
 @Component({
   selector: 'app-contactos',
   templateUrl: './tmpl-anfitrion.component.html',
@@ -20,6 +19,7 @@ export class ContactosComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void { this.vm.clear(); }
 }
+/*
 
 @Component({
   selector: 'app-contactos-list',
@@ -142,6 +142,6 @@ export class ContactosViewComponent implements OnChanges {
 
 
 export const CONTACTOS_COMPONENTES = [
-  // ContactosComponent,
+  ContactosComponent,
   ContactosListComponent, ContactosAddComponent,  ContactosEditComponent, ContactosViewComponent,
 ];
